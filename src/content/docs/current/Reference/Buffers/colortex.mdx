@@ -24,7 +24,7 @@ Additionally, you can read and write to the first 6 colortex buffer in Optifine 
 These buffers default to the display resolution, although this can be configured with the [`size.buffer`](/current/reference/shadersproperties/rendering#sizebuffer) define in shaders.properties. However, changing the buffer size will prevent any [`gbuffer`](/current/reference/programs/gbuffers) program from writing to the texture.
 
 #### Buffer format/precision
-All buffers default to `RGBA` format (which is `RGBA8` on most systems), but this can be configured as described in the [Texture Formats](/current/reference/buffers/image_format) section.
+All buffers default to `RGBA` format (which is `RGBA8` on most systems), but this can be configured as described in the [Image Format](/current/reference/buffers/image_format) section.
 
 #### Buffer clear
 By default all buffers clear their values after each frame to solid black (all 0s including alpha), except `colortex0` which clears to the [`fogColor`](/current/reference/uniforms/rendering#fogcolor) with 1.0 alpha, and `colortex1` which clears to solid white (all 1s including alpha). This clearing behavior can be configured with the [`colortexNClear`](/current/reference/constants/buffer_clear) directive, and the clear color can be configured with the [`colortexNClearColor`](/current/reference/constants/buffer_clear_color) directive.
@@ -46,4 +46,4 @@ The first 8 colortex buffers have legacy aliases, although their names are often
 | colortex6     | gaux3       |
 | colortex7     | gaux4       |
 
-*Note: if `gdepth` is defined anywhere in the shader and the texture format for `colortex1`/`gdepth` is `RGBA` (or not specifically set by the shader), Iris will upgrade the format to `RGBA32F`. This represents legacy behavior, where `gdepth` was used to store depth values.*
+*Note: if `gdepth` is defined anywhere in the shader and the texture/image format for `colortex1`/`gdepth` is `RGBA` (or not specifically set by the shader), Iris will upgrade the format to `RGBA32F`. This represents legacy behavior, where `gdepth` was used to store depth values.*
